@@ -1,0 +1,8 @@
+height <- c(61, 62, 63, 64, 66, 68)
+weight <- c(104, 110, 125, 141, 160, 170)
+
+a_temp <- linreg(height, weight)[1]
+b_temp <- linreg(height, weight)[2]
+
+y <- a_temp + (b_temp * height)
+y
