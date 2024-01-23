@@ -1,0 +1,33 @@
+my_cor <- function(x, y, use = "everything") {
+  if(use == "pairwise.complete.obs") {
+    full <- !is.na(x) & !is.na(y)
+    x <- x[full]
+    y <- y[full]
+  }
+  xmean <- mean(x)
+  ymean <- mean(y)
+  num <- sum((x - xmean) * (y - ymean))
+  den <- sqrt(sum((x - xmean)^2)) * sqrt(sum((y - ymean)^2))
+  num / den
+
+}
+
+x <- c(4000, NA, 2000)
+y <- c(1, 2, 3)
+
+my_cor(x, y, use = "pairwise.complete.obs") 
+
+linreg <- function(x, y, use = "everything") {
+  if(use == "pairwise.complete.obs") {
+    full <- !is.na(x) & !is.na(y)
+    x <- x[test]
+    y <- y[test]
+  }
+  sdx <- sd(x)
+  sdy <- sd(y)
+  temp <- my_cor(x, y)
+  b <- temp * (sdy / sdx)
+  a <- mean(y) - (b * mean(x))
+  output <- c(a, b)
+  output
+}
