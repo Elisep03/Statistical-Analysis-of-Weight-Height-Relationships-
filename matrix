@@ -1,0 +1,18 @@
+linreg_mat <- function(x, y) {
+  if (length(x) == length(y)) {
+     X <- matrix(nrow = length(x), ncol = 2)
+    for (i in x) {
+      col1 <- c(1)
+    }
+    X <- rbind(col1, x)
+    output <- (my_t(X) %*% X)^(-1) %*% my_t(X)*y
+    output
+  } else {
+    stop("Vector arguments are not of the same length")
+  }
+ 
+}
+
+height <- c(61, 62, 63, 64, 66, 68)
+weight <- c(104, 110, 125, 141, 160, 170)
+linreg_mat(height, weight)
